@@ -5,7 +5,7 @@
 
 [package]
 name = "tectonic_bridge_harfbuzz"
-version = "0.1.0"
+version = "0.1.0+20210218"
 authors = ["Peter Williams <peter@newton.cx>"]
 description = """
 Expose the Harfbuzz C/C++ APIs to Rust/Cargo.
@@ -19,8 +19,8 @@ edition = "2018"
 links = "harfbuzz"
 
 [dependencies]
-tectonic_bridge_graphite2 = { path = "../bridge_graphite2", version ="^0.1.0"}
-tectonic_bridge_icu = { path = "../bridge_icu", version ="^0.1.0"}
+tectonic_bridge_graphite2 = { path = "../bridge_graphite2", version ="^0.1.1+20210218"}
+tectonic_bridge_icu = { path = "../bridge_icu", version ="^0.1.0+20210218"}
 
 [build-dependencies]
 cc = "^1.0.66"
@@ -30,6 +30,6 @@ tectonic_dep_support = { path = "../dep_support", version ="^0.1.0"}
 external-harfbuzz = []
 
 [package.metadata.internal_dep_versions]
-tectonic_bridge_graphite2 = "f135da463a65e731f05bafdd840edaa90137ec12"
-tectonic_bridge_icu = "thiscommit:2021-01-09:diehoh1E"
+tectonic_bridge_graphite2 = "2c1ffcd702a662c003bd3d7d0ca4d169784cb6ad"
+tectonic_bridge_icu = "2c1ffcd702a662c003bd3d7d0ca4d169784cb6ad"
 tectonic_dep_support = "5faf4205bdd3d31101b749fc32857dd746f9e5bc"

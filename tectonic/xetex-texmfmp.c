@@ -9,6 +9,7 @@
 #include "xetex-xetexd.h"
 #include "xetex-ext.h"
 
+#include <stdio.h> /* For s(n)printf */
 #include <time.h> /* For `struct tm'.  Moved here for Visual Studio 2005.  */
 #ifndef _MSC_VER
 #include <sys/time.h>
@@ -154,7 +155,7 @@ getfilemoddate(str_number s)
   char buf[20];
 
   name = gettexstring(s);
-  handle = ttstub_input_open(name, TTIF_TEX, 0);
+  handle = ttstub_input_open(name, TTBC_FILE_FORMAT_TEX, 0);
   free(name);
 
   if (handle == NULL)
@@ -189,7 +190,7 @@ getfilesize(str_number s)
   int i;
 
   name = gettexstring(s);
-  handle = ttstub_input_open(name, TTIF_TEX, 0);
+  handle = ttstub_input_open(name, TTBC_FILE_FORMAT_TEX, 0);
   free(name);
 
   if (handle == NULL)
@@ -238,7 +239,7 @@ void getfiledump(int32_t s, int offset, int length)
   }
 
   name = gettexstring(s);
-  handle = ttstub_input_open(name, TTIF_TEX, 0);
+  handle = ttstub_input_open(name, TTBC_FILE_FORMAT_TEX, 0);
   free(name);
 
   if (handle == NULL) {
@@ -449,7 +450,7 @@ void getmd5sum(str_number s, bool file)
     if (file)
         ret = ttstub_get_file_md5 (xname, digest);
     else
-        ret = ttstub_get_data_md5 (xname, strlen (xname), digest);
+        ret = ttbc_get_data_md5 ((const unsigned char *) xname, strlen (xname), (unsigned char *) digest);
 
     free(xname);
     if (ret)
